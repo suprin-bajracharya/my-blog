@@ -17,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // create a variable and store in it from the database
+        $posts = Post::all();//creating a variable
+
+        // return a view and pass in the above variable
+        return view('posts.index')->withPosts($posts);
     }
 
     /**
@@ -51,8 +55,8 @@ class PostController extends Controller
         $post->body  = $request->body; 
 
         $post->save();
-        //add namespace use session above before running
-        Session::flash('success','The blog post has been saved');
+
+        Session::flash('success', 'The post has been posted successfully.');
         //redirect to another page
         return redirect()->route('posts.show', $post->id);
         
@@ -66,7 +70,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show');
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
