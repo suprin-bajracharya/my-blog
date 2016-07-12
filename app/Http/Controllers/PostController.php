@@ -51,7 +51,7 @@ class PostController extends Controller
         $post->body  = $request->body; 
 
         $post->save();
-
+        //add namespace use session above before running
         Session::flash('success','The blog post has been saved');
         //redirect to another page
         return redirect()->route('posts.show', $post->id);

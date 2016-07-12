@@ -1,11 +1,18 @@
 @extends('main')
 @section('title','|Contact us')
+
+@section('stylesheets')
+
+  {!! Html::style('css/parsley.css') !!}
+
+@endsection
+
 @section('content')
     <div class="row">
       <div class="col-md-12">
         <h1>Contact Me</h1>
         <hr>
-        <form action="">
+        <form action="" >
           <div class="form-group">
           <label for="email">Email:</label>
           <input type="text" id="email" class="form-control">
