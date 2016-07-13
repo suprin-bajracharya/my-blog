@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           <label for="email">Message:</label>
-          <textarea name="message" id="message" cols="30" rows="10" class="form-control">Message here</textarea>
+          <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="msh here"></textarea>
         </div>
         <input type="submit" class="btn btn-success">
         </form>
