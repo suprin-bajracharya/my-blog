@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         // create a variable and store in it from the database
-        $posts = Post::all();//creating a variable
+        $posts = Post::orderBy('id', 'desc')->paginate(5);//creating a variable and paginating diaplay
 
         // return a view and pass in the above variable
         return view('posts.index')->withPosts($posts);
