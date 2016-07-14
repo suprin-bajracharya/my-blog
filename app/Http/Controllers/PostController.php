@@ -44,7 +44,8 @@ class PostController extends Controller
     {
         //validate the data
         $this->validate($request, array(
-                'title' => 'required|max:255',
+                'title' => 'required|max:255|min:2',
+                'slug'  => 'required|max:255|min:2|alpha_dash|unique:posts,slug',
                 'body'  => 'required' 
             ));
 
@@ -52,6 +53,7 @@ class PostController extends Controller
         $post = new Post; //object of the post model
 
         $post->title = $request->title;
+        $post->slug  = $request->slug;
         $post->body  = $request->body; 
 
         $post->save();
@@ -100,13 +102,15 @@ class PostController extends Controller
         //Validate the data
         $this->validate($request, array(
             'title' => 'required|max:255',
+            'slug'  => 'required|max:255|min:2|alpha_dash|unique:posts,slug',
             'body' => 'required'
             ));
         //Save the date to the database
         $post = Post::find($id);
 
         $post->title = $request->input('title');
-        $post->body = $request->input('body');
+        $post->slug  = $request->input('slug');
+        $post->body  = $request->input('body');
 
         $post->save();
         //set flash data with success message
@@ -131,5 +135,6 @@ class PostController extends Controller
         Session::flash('success', 'The post has been deleted successfully');
         //redirect to index
         return redirect()->route('posts.index');
+
     }
 }
