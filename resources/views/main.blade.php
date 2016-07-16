@@ -9,6 +9,8 @@
 
 @include('partials._messages')
 
+
+
 @yield('content')
 <hr>
 

@@ -1,6 +1,11 @@
 @extends('main')
 
 @section('title', '| Register')
+@section('stylesheets')
+
+	{!! Html::style('css/parsley.css') !!}
+
+@endsection
 
 @section('content')
 

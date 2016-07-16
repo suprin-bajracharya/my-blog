@@ -44,7 +44,14 @@
 			</table>
 			<div class="text-center">
 				{!!$posts->links();!!}
-				<strong>You are in Page:</strong> {{$posts->currentPage()}} <em>of</em> <strong>{{$posts->lastPage()}}</strong>	
+				
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="text-center">
+						<strong>You are in Page:</strong> {{$posts->currentPage()}} <em>of</em> <strong>{{$posts->lastPage()}}</strong>	
+					</div>	
+				</div>
 			</div>
 		</div>
 	</div>

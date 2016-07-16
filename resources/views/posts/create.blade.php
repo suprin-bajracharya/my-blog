@@ -2,11 +2,7 @@
 
 @section('title', '| Create New Post')
 
-@section('stylesheets')
 
-	{!! Html::style('css/parsley.css') !!}
-
-@endsection
 
 @section('content')
 

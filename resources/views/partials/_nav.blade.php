@@ -26,16 +26,27 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
+          @if(Auth::check())
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello,{{Auth::user()->email}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                
+
                 <li><a href="{{route('posts.index')}}">Posts</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="{{route('logout')}} ">Logout</a></li>
               </ul>
             </li>
+            @else
+              
+              <a href="{{route('login')}}" class="btn btn-link form-spacing-top"> Sign In!!</a>
+
+            @endif
+
+
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
