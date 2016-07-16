@@ -100,11 +100,20 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //Validate the data
+        $post = Post::find($id);
+        if($request->input('slug') == $post->slug){
+            $this->validate($request, array(
+            'title' => 'required|max:255',
+            'slug'  => 'required|max:255|min:2|alpha_dash',
+            'body' => 'required'
+            ));
+        }else{
         $this->validate($request, array(
             'title' => 'required|max:255',
             'slug'  => 'required|max:255|min:2|alpha_dash|unique:posts,slug',
             'body' => 'required'
             ));
+        }   
         //Save the date to the database
         $post = Post::find($id);
 
