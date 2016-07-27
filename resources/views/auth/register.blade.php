@@ -22,8 +22,8 @@
           	{{Form::label('password','Password:')}}
           	{{Form::password('password',['class' => 'form-control'])}}
 
-          	{{Form::label('password-confirmation','Confirm Password:')}}
-          	{{Form::password('password-confirmation',['class' => 'form-control'])}}
+          	{{Form::label('password_confirmation','Confirm Password:')}}
+          	{{Form::password('password_confirmation',['class' => 'form-control'])}}
 
 			{{Form::submit('Register',['class' =>'btn btn-primary btn-block form-spacing-top'])}}
 			<br>

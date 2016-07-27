@@ -19,7 +19,7 @@
 					{{Form::label('email', 'Email:')}}	
 					{{Form::email('email', null, ['class' =>'form-control'])}}
 					{{Form::submit('Reset Password', ['class'=> 'btn btn-primary form-spacing-top'])}}
-					{!!Form::close() !!}
+					{!!Form::close()!!}
 				</div>
 			
 		</div>
