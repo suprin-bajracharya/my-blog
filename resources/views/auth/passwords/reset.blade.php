@@ -12,6 +12,7 @@
 				{!!Form::open(['url'=>'password/reset', 'method' => "POST"])!!}
 
 				{{Form::hidden('token', $token)}}
+				
 				{{Form::label('email', 'Email:')}}	
 				{{Form::email('email', null, ['class' =>'form-control'])}}
 

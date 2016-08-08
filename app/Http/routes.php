@@ -15,7 +15,7 @@
 	Route::post('auth/login', 'Auth\AuthController@postLogin');
 	Route::get('auth/logout', ['as'=> 'logout','uses'=> 'Auth\AuthController@getLogout']);
 
-	//Registration ROutes
+	//Registration Routes
 	Route::get('auth/register', 'Auth\AuthController@getRegister');
 	Route::post('auth/register', 'Auth\AuthController@postRegister');
 
@@ -23,6 +23,11 @@
 	Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 	Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail' );
 	Route::post('password/reset', 'Auth\PasswordController@reset');
+
+	//Categories
+	Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+	//tags
+	Route::resource('tags', 'TagController', ['except' => ['create']]);
 
 	//Blog or Posts or articles Routes
 	Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])
@@ -32,6 +37,7 @@
    	Route::get('/', 'PagesController@getIndex');
 	Route::get('about','PagesController@getAbout');
 	Route::get('contact','PagesController@getContact');
+	Route::post('contact', 'PagesController@postContact');
 
 	Route::resource('posts','PostController'); 
 
