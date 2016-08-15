@@ -8,7 +8,7 @@
 		<div class="col-md-8">
 			<h1>{{$post->title}} </h1>
 	
-			<p class="lead"> {{$post->body}} </p>
+			<p class="lead"> {!! $post->body !!} </p>
 			<hr>
 			<div class="tags">
 				@foreach($post->tags as $tag)
@@ -50,7 +50,7 @@
 			<div class="well">
 				<dl class="dl-horizontal">
 					<label>URL:</label>
-					<p><a href="{{url($post->slug)}}">{{url($post->slug)}}</a> </p>
+					<p><a href="{{route('blog.single',$post->slug)}}">{{route('blog.single',$post->slug)}}</a> </p>
 				</dl>
 				<dl class="dl-horizontal">
 					<label>Categoties:</label>
@@ -78,6 +78,11 @@
 						{!!Form::close()!!}
 					</div>
 				</div><!-- row ends here -->
+				<div class="row">
+					<div class="col-md-12">
+						{{ Html::linkRoute('posts.index', '<< See All Posts', array(), ['class' => 'btn btn-default btn-block btn-h1-spacing']) }}
+					</div>
+				</div>
 			</div><!--  well ends here  -->
 		</div><!--  col-md-4 ends  -->
 	</div><!--  row ends here }} -->

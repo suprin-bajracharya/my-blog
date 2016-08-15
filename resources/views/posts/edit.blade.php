@@ -2,8 +2,16 @@
 
 @section('title', '| Edit Post')
 @section('stylesheet')
-{!! Html::style('css/parsley.css') !!}
-{!! Html::style('css/select2.min.css') !!}
+	{!! Html::style('css/parsley.css') !!}
+	{!! Html::style('css/select2.min.css') !!}
+	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			plugins: 'link code'
+		});
+	</script>
 
 @section('content')
 	
@@ -48,6 +56,11 @@
 							{{Form::submit('Save Changes', ["class"=> 'btn btn-success btn-block'])}}
 						</div>
 					</div><!-- row ends here -->
+					<div class="row">
+						<div class="col-md-12">
+							{{ Html::linkRoute('posts.index', '<< See All Posts', array(), ['class' => 'btn btn-default btn-block btn-h1-spacing']) }}
+						</div>
+					</div>
 				</div><!--  well ends here  -->
 			</div><!--  col-md-4 ends  -->
 		{!!Form::close()!!}
