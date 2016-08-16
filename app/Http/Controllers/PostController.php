@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,6 +12,7 @@ use App\Tag;
 
 use Session;
 use Purifier;
+
 
 
 class PostController extends Controller
@@ -69,6 +71,16 @@ class PostController extends Controller
         $post->slug  = $request->slug;
         $post->category_id = $request->category_id;
         $post->body  = Purifier::clean($request->body);
+
+        //save our image
+        if($request->hasFile('feature_image')){
+            $image = $request->file('feature_image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            $post->image = $filename;
+        }
 
         $post->save();
 
